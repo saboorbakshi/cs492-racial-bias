@@ -5,25 +5,14 @@ import './globals.css'
 import Header from '@/components/Header'
 
 const custom = localFont({
-  src: [
-    {
-      path: '../../public/fonts/neue-montreal-regular.woff2',
-      weight: '400',
-      style: 'normal'
-    },
-    {
-      path: '../../public/fonts/neue-montreal-medium.woff2',
-      weight: '500',
-      style: 'normal'
-    }
-  ],
-  variable: '--font-custom'
+  src: '../../public/fonts/Figtree_VF_W.ttf',
+  variable: '--font-custom',
+  display: 'swap'
 })
 
 export const metadata: Metadata = {
-  title: 'Saboor Bakshi',
-  description:
-    'Software engineer with a deep appreciation for great design, currently studying Computer Science at the University of Waterloo.'
+  title: 'CS 492',
+  description: 'How Biased Clinical Research Data Affects Healthcare Practices'
 }
 
 export default function RootLayout({
@@ -36,7 +25,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <main className="flex flex-col grow items-center my-8 mb-12 sm:my-12 px-6">
           <div className="w-full max-w-screen-custom">
-            <Header />
+            {/* <Header /> */}
             {children}
           </div>
         </main>

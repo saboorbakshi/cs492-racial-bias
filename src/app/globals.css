@@ -26,4 +26,5 @@ body {
   background-color: rgb(var(--background-rgb));
   color: rgb(var(--foreground-rgb));
   font-size: 16px;
+  font-weight: 400;
 }
