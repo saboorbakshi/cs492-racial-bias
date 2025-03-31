@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from '@/components/Link'
 
 const interviewees = [
   {
@@ -55,7 +56,24 @@ export default function Home() {
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
-      <div className="sm:text-2xl font-medium mb-4">Interviewees</div>
+      <div className="sm:text-2xl font-medium mb-4">Introduction</div>
+      <div className="mb-4">
+        Our project explores how biased clinical data, especially lacking in racial and gender
+        diversity, can lead to harmful outcomes in healthcare AI. Through interviews and case
+        studies, we examine real-world examples where algorithms made discriminatory decisions, and
+        propose ways to make AI in healthcare more inclusive and fair.
+      </div>
+      <div className="flex flex-row">
+        <Link label="Project Proposal" url="/pdfs/project-proposal.pdf" />
+        <div className="mx-2">•</div>
+        <Link label="Progress Report" url="/pdfs/progress-report.pdf" />
+        <div className="mx-2">•</div>
+        <Link label="Interview Script" url="/pdfs/interview-script.pdf" />
+      </div>
+
+      <div className="h-[1px] bg-stroke my-8"></div>
+
+      <div className="sm:text-2xl font-medium mb-4">Interviews</div>
       <div className="mb-8">
         We interviewed four participants, beginning with brief introductions about their background
         and research. Each was presented with six real-world cases of biased AI in healthcare—three
