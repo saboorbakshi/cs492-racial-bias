@@ -9,7 +9,7 @@ const interviewees = [
     role: 'Professor',
     src: 'not-available.png',
     company: 'University of Waterloo',
-    companySrc: 'university-of-waterloo.jpeg',
+    companySrc: 'university-of-waterloo.png',
     youtubeId: '0NFZOjxsusA'
   },
   {
@@ -17,23 +17,23 @@ const interviewees = [
     role: 'Bioinformatician',
     src: 'jennifer-aguiar.jpeg',
     company: 'The Hospital for Sick Children',
-    companySrc: 'hospital-for-sick-children.jpeg',
+    companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: '2Fmyextb2Qg'
   },
   {
     name: 'Pedro Ballester',
     role: 'Machine Learning Specialist',
     src: 'pedro-ballester.jpeg',
-    company: 'The Hospital for Sick Children',
-    companySrc: 'hospital-for-sick-children.jpeg',
+    company: 'The Hospital for Sick Kids',
+    companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: 'Up5Bgq2Vrxs'
   },
   {
     name: 'Scott Davidson',
     role: 'Senior Bioinformatician',
     src: 'not-available.png',
-    company: 'The Hospital for Sick Children',
-    companySrc: 'hospital-for-sick-children.jpeg',
+    company: 'The Hospital for Sick Kids',
+    companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: 'CFe6isPF6ao'
   }
 ]
@@ -52,25 +52,46 @@ export default function Home() {
           <div className="text-fgSecondary">Mar 31, 2025</div>
         </div>
       </div>
+
       <div className="h-[1px] bg-stroke my-8"></div>
 
       <div className="sm:text-2xl font-medium mb-4">Interviewees</div>
-      <div className="grid grid-cols-2 gap-x-0 gap-y-8 mb-6">
+      <div className="mb-8">
+        We interviewed four participants, beginning with brief introductions about their background
+        and research. Each was presented with six real-world cases of biased AI in healthcare—three
+        based on gender, three on race. We first offered limited, skewed details to explore their
+        assumptions, then revealed the full context for deeper discussion. The interviews concluded
+        with reflections on broader impacts and solutions.
+      </div>
+      <div className="grid grid-cols-2 gap-x-0 gap-y-8 mb-8">
         {interviewees.map((interviewee, index) => (
           <button
             key={index}
             onClick={() => setSelectedInterviewee(interviewee)}
             className="flex flex-row items-center gap-4 group"
           >
-            <Image
-              src={`/interviewees/${interviewee.src}`}
-              alt={interviewee.name}
-              width={72}
-              height={72}
-              className="rounded-full border"
-            />
+            <div className="relative">
+              <Image
+                src={`/interviewees/${interviewee.src}`}
+                alt={interviewee.name}
+                width={72}
+                height={72}
+                className="rounded-full border"
+              />
+              <Image
+                src={`/companies/${interviewee.companySrc}`}
+                alt={interviewee.company}
+                width={36}
+                height={36}
+                className="rounded-full border absolute -bottom-2 -right-2"
+              />
+            </div>
             <div className="flex flex-col items-start">
-              <div className={`sm:text-base font-semibold ${selectedInterviewee.name === interviewee.name ? 'text-blue-500' : ''} group-hover:underline transition-colors`}>
+              <div
+                className={`sm:text-base font-semibold ${
+                  selectedInterviewee.name === interviewee.name ? 'text-blue-500' : ''
+                } group-hover:underline transition-colors`}
+              >
                 {interviewee.name}
               </div>
               <div className="sm:text-base">{interviewee.role}</div>
@@ -89,6 +110,10 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
+
+      <div className="h-[1px] bg-stroke my-8"></div>
+
+      <div className="sm:text-2xl font-medium mb-4">Analysis</div>
     </div>
   )
 }
