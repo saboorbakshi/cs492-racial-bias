@@ -156,7 +156,13 @@ export default function Home() {
       </div>
 
       <div className="sm:text-xl font-medium mb-3">Discussion</div>
-      <div className="mb-6">{caseStudies[selectedCase].discussion}</div>
+      <div className="mb-6">
+        {caseStudies[selectedCase].discussion.map((paragraph, index) => (
+          <p key={index} className="mb-3">
+            {paragraph}
+          </p>
+        ))}
+      </div>
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
