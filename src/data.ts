@@ -11,7 +11,7 @@ export const interviewees = [
     name: 'Jennifer Aguiar',
     role: 'Bioinformatician',
     src: 'jennifer-aguiar.jpeg',
-    company: 'The Hospital for Sick Children',
+    company: 'The Hospital for Sick Kids',
     companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: '2Fmyextb2Qg'
   },
@@ -30,6 +30,113 @@ export const interviewees = [
     company: 'The Hospital for Sick Kids',
     companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: 'CFe6isPF6ao'
+  }
+]
+
+export const caseStudies = [
+  {
+    title: 'Transgender Patient’s Emergency Misdiagnosed by Algorithmic Bias',
+    summary: [
+      'A 32-year-old transgender man arrived at the emergency room with severe abdominal pain. Although he informed staff that he was transgender, the hospital’s electronic health record (EHR) system listed him as male. As a result, clinicians failed to consider pregnancy and misattributed his symptoms to factors like obesity. The patient was, in fact, pregnant and experiencing labour complications. Due to the delay in recognizing this, urgent care was postponed, and tragically, the baby was stillborn.',
+      'This case highlights how rigid, binary classifications in health records — combined with provider assumptions — can lead to critical misdiagnoses. Standard pregnancy-related alerts never triggered because the system registered the patient as male. This highlights the dangers of algorithmic bias and the need for more inclusive healthcare systems that reflect the realities of transgender and non-binary individuals in today’s day and age.'
+    ],
+    questions: [
+      'Imagine you’re a physician treating a patient with severe abdominal pain and no visible injuries. What diagnoses would immediately come to mind, and what additional information would you ask for?',
+      'What if you were told the patient was a woman?',
+      'How might your diagnostic thinking change if you were told the patient was a man?',
+      'How would learning that the patient is a transgender man affect your clinical reasoning, and what challenges might arise in ensuring they receive appropriate care?',
+      'In your opinion, now knowing that the person was transgender and pregnant, what role did algorithmic bias, system design, or any other factors that you can think of, play in the AI’s failure to identify pregnancy risk in this case?',
+      'What changes would you suggest — to electronic health records, triage systems, provider training, etc. — to prevent similar outcomes for transgender patients in the future?'
+    ],
+    discussion: 'Discussion 1'
+  },
+  {
+    title: 'Symptom Checker Underestimates a Woman’s Heart Attack',
+    summary: [
+      'An AI-powered symptom-checker app provided dangerously different recommendations for a man and a woman with identical symptoms. Both were 59-year-old smokers reporting sudden chest pain and nausea. The only variable was gender. The male patient was warned of potential heart issues, including unstable angina or a heart attack, and advised to seek emergency care. The female patient, however, was told her symptoms might be due to depression or anxiety, with no urgent care recommended.',
+      'This discrepancy highlights how AI tools can replicate and amplify gender bias, potentially leading to delayed treatment or misdiagnosis. In this case, the AI appeared to rely on statistical trends that underrepresent heart attacks in women—overlooking the real and serious risk of cardiac events in female patients. Public concern grew after this example came to light, as it revealed how gender stereotypes (“women are anxious, men have heart attacks”) can shape algorithmic decisions.',
+      'Ultimately, the case highlights the critical importance of designing healthcare AI systems that recognize and adjust for bias. Life-threatening conditions must be considered for all patients—regardless of gender—especially when symptoms are shared.'
+    ],
+    questions: [
+      'Imagine a 59-year-old patient presents with sudden chest pain and nausea. Without knowing their gender, what would be your top differential diagnoses, and what would your next steps be?',
+      'Would you take the problem seriously right away, or would you think that chest pain for a 59-year-old is likely not serious?',
+      "Now imagine learning the patient is a woman, and you're told that statistically, women are less likely to have a heart attack. Would this influence your decisions? Should it?",
+      'If the patient was a man, would your sense of urgency change, keeping in mind that statistically, men are more likely to have a heart attack?',
+      'So overall, would your perspective and seriousness stay the same if they were a 59-year-old with chest pain regardless of their gender?',
+      'Even if the statistical risk is lower in women, how would you balance data like this with the need to consider life-threatening conditions like heart attacks?',
+      'How should an AI triage system handle gender-based statistical differences? Should it present all serious possibilities regardless of probability, especially in potentially fatal scenarios?',
+      'Was the AI’s response defensible, given it followed statistical trends, or should its priority have been patient safety over data-driven averages? Where’s the line between data and ethical care? Do you believe it failed in its duty to provide safe recommendations?'
+    ],
+    discussion: 'Discussion 2'
+  },
+  {
+    title: 'Male Breast Cancer Patient Denied Treatment by Gendered Algorithm',
+    summary: [
+      'Raymond Johnson, a 26-year-old man from South Carolina, was denied Medicaid coverage for breast cancer treatment solely because of his gender. Although diagnosed with breast cancer, he was ruled ineligible for a federal Medicaid program that covered patients screened through certain government programs — programs that only screened women. As a result, the insurance algorithm automatically excluded men, leaving Raymond without coverage for the chemotherapy and surgery he urgently needed.',
+      'This case exemplifies how gender bias embedded in policy and algorithmic systems can have life-threatening consequences. The program failed to account for the fact that men can also develop breast cancer, effectively barring male patients from life-saving care. Advocacy groups, including the ACLU, condemned the exclusion as discriminatory and pushed for reform. The case prompted broader conversations about the need to design healthcare systems and policies that are inclusive of all genders and reflective of real patient populations.'
+    ],
+    questions: [
+      'When a young patient (let’s say 25 years old) presents with a lump in their chest, what key factors guide your differential diagnosis and decision to recommend further testing?',
+      'How might your diagnostic approach change based on if the patient is female? What would your decision lean more towards in terms of diagnosis?',
+      "If they were male, would you consider the same things as women's chest pain or would your approach be quite different for male chest pain?",
+      'Breast cancer is rare in men, less than 1% of all breast cancers occur in men, should that rarity affect your decision to test for it? How do you balance the risk of over-testing versus missing a critical diagnosis?',
+      'What role do you think societal assumptions — like breast cancer being a “women’s disease” — played in the algorithm’s decision to deny coverage to Raymond?',
+      'What changes would you suggest to healthcare algorithms or policies to prevent gender-based denial of coverage in similar cases? How can we ensure equal access to treatment for all?',
+      'Should healthcare algorithms prioritize statistical likelihoods and trends or be designed to account for rare but serious conditions — especially when lives are at stake? How should they strike that balance?'
+    ],
+    discussion: 'Discussion 3'
+  },
+  {
+    title: 'Anthony Randall and Kidney Transplant Algorithm Bias',
+    summary: [
+      'Anthony Randall is a Black man from Los Angeles who was on dialysis, waiting for a kidney transplant for over five years (TheGrio, 2023). What he did not know is that an algorithm from the transplant system incorporated a race-based “modifier” that made Black patients’ kidney scores seem better than they were. This modifier caused Randall’s kidney disease to be less severe than it truly was, leading to his placement on the national transplant waiting list being significantly delayed. In mid-2023, he filed a case against his hospital (Cedars Sinai Medical Center) and the United Network for Organ Sharing alleging that he was unfairly deprived of a fair chance to get the transplant because of the racially biased formula. It was no secret that the algorithm had a bias.',
+      "The board of the transplant system understood the modifier was resulting in Black patients' illnesses being severely underestimated. By early 2023, all hospitals were directed to stop the usage of race adjustment and Black patients’ waiting times were to be changed to reflect the postponement. Randall claims that had these changes come sooner; he could have already had the kidney that he desperately needs. His case highlights how the goal of the clinical algorithm was good, but the execution was not due to the insertion of race which caused Black patients to not receive quality care in a timely manner."
+    ],
+    questions: [
+      'Imagine you’re a healthcare provider evaluating a patient with kidney disease for transplant eligibility. What clinical factors would you typically consider when assessing disease severity and readiness for transplant?',
+      'Have you heard of race-based modifiers in kidney function scoring (such as eGFR)? What do you think was the original intention behind including race in those calculations?',
+      'Knowing now that this modifier made Black patients appear healthier than they were — delaying transplant eligibility — how do you think this affected patients like Anthony Randall?',
+      'Should hospitals or national organizations be held accountable when algorithms known to be biased continue to be used? What obligations do they have once they become aware of harm?',
+      'In Randall’s case, the board eventually mandated the removal of race adjustments, but it came years after the issue was known. Do you think that delay was acceptable? What should have been done differently?',
+      'How can health systems design clinical algorithms that avoid reinforcing historical or systemic inequities — especially those tied to race?',
+      'What steps, if any, should be taken to make things right for patients who were harmed by biased algorithms — such as adjusting wait times, issuing apologies, or offering compensation?'
+    ],
+    discussion: 'Discussion 4'
+  },
+  {
+    title: 'Dr. Noha Aboelata and Pulse Oximeter Bias During COVID-19',
+    summary: [
+      'During the pandemic, race-related biases in medical technology confronted Dr. Noha Aboelata, a family physician and the Chief Executive Officer of Roots Community Health Center based in Oakland. In late 2020, one of her patients was an elderly African American gentleman who suffered from chronic lung illness (Department of Epidemiology & Biostatistics, UCSF, 2022). One of the checks done previously, the pulse oxygenation check, revealed that his oxygen saturation levels were high. Even though the device showed a relatively normal oxygen level, Dr. Aboelata’s clinical instinct indicated the patient was much more distressed. She conducted an arterial blood gas test which confirmed her worst fears, the oxygen content in the patient’s blood was too low and he needed oxygen.',
+      'Sometime later, she came across an article in the New England Journal of Medicine that confirmed her hunch; the oximeters were unable to register low oxygen levels in dark skinned patients as compared to white patients. She and her colleagues were outraged by a device that was supposed to help their patients but was grossly inaccurate for the Black population. Finally, her clinic participated in a class-action lawsuit against easier manufacturers and sellers of pulse oximeters for more detailed warnings and up-to-date devices. She did not stand idle while demanding the FDA take pulse oximeter discrimination towards races very seriously.'
+    ],
+    questions: [
+      "Imagine you're treating a patient with chronic lung disease during a respiratory pandemic. If a pulse oximeter shows normal oxygen saturation, but the patient appears visibly distressed, what would you do next?",
+      'How much would you completely rely on tools like pulse oximeters in clinical decision-making? Do you think you would ever question or double-check the accuracy of a medical device?',
+      'In this case, Dr. Aboelata’s clinical judgment overruled the device’s reading. What does this say about the limitations of relying too heavily on technology without understanding its biases?',
+      'Pulse oximeters were found to overestimate oxygen levels in patients with darker skin. Why do you think this design flaw persisted for so long, despite the risk it posed to patients of colour?',
+      'Do you believe the FDA and manufacturers have done enough to address this issue? What more should regulatory bodies be doing to ensure devices are accurate across diverse populations?',
+      'How should future healthcare providers be trained to detect and challenge device-based bias in patient care?',
+      'For communities that have been historically underserved or harmed by biased tools, how can the medical system begin to rebuild trust and ensure safer, more equitable care?'
+    ],
+    discussion: 'Discussion 5'
+  },
+  {
+    title: 'Alex Morales and Smartwatch Blood-Oxygen Reading Bias',
+    summary: [
+      'Alex Morales, a New York resident, brought attention to a case of possible racial bias in the consumer health device, Apple Watch (Stempel, 2023). Morales, who has a darker complexion, bought an Apple Watch with the expectation that its blood oxygen sensor would accurately log his oxygen levels for fitness and health purposes. To his surprise, he later found out that the device’s oximeter may not work well with people from his demographic.',
+      'In late 2022, Morales initiated a class action lawsuit against Apple for allegedly containing a blood oxygen app that was racially discriminatory and did not function as promised for non-white customers. Supported in part by complaints of other studies claiming that more advanced pulse oximetry devices are “massively” less useful on people with darker skin, Morales asserted that Apple owed the public an explanation. After all, paying smartphone users assumed that the device would be equal for all users, which is not the case. While the judge dismissed the case in 2023, it did start an important discussion regarding Apple products. Their case showed the world that there are, in fact, indirect biases in medical-grade equipment. This shows us that Alex Morales and the rest of the community are still subjected to discrimination based on race even in the technology they choose to use. Moreover, it demonstrates the keen eye for responsibility the tech industry has in these situations.'
+    ],
+    questions: [
+      'If you purchase a health-monitoring device like a smartwatch, what level of accuracy and reliability would you expect — especially when it comes to tracking critical health metrics like blood oxygen levels?',
+      'How would you feel if you discovered that your device didn’t work as accurately for people with your skin tone or demographic?',
+      'Do you think companies like Apple have an obligation to disclose limitations in their health sensors, especially if those limitations affect certain racial or skin tone groups?',
+      'Why do you think skin tone bias in oximeters and wearable health devices hasn’t received widespread attention until recently? What might be some of the barriers to addressing it?',
+      'The court dismissed Morales’s case, but do you think tech companies should still be held accountable in other ways? What kind of responsibility should they carry when their products are shown to underperform for marginalized users?',
+      'Should consumer tech devices with health features (like smartwatches) be subject to the same regulatory scrutiny as medical devices? Why or why not?',
+      'How can the tech industry ensure that innovations in health and wellness tools are tested fairly across diverse populations? Who should be involved in that process?',
+      'What does this case reveal about the intersection between technology, race, and access to accurate health information in the digital age? How can companies rebuild or maintain trust with users who may feel excluded or misled by biased product performance?'
+    ],
+    discussion: 'Discussion 6'
   }
 ]
 

@@ -3,11 +3,12 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from '@/components/Link'
-import { interviewees } from '@/data'
+import { interviewees, caseStudies } from '@/data'
 import ButtonLink from '@/components/ButtonLink'
 
 export default function Home() {
   const [selectedInterviewee, setSelectedInterviewee] = useState(interviewees[0])
+  const [selectedCase, setSelectedCase] = useState(0)
 
   return (
     <div>
@@ -41,7 +42,7 @@ export default function Home() {
       <div className="h-[1px] bg-stroke my-8"></div>
 
       <div className="sm:text-2xl font-medium mb-4">Interviews</div>
-      <div className="mb-8">
+      <div className="mb-6">
         We interviewed four participants, beginning with brief introductions about their background
         and research. Each was presented with six real-world cases of biased AI in healthcare—three
         based on gender, three on race. We first offered limited, skewed details to explore their
@@ -110,7 +111,52 @@ export default function Home() {
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
-      <div className="sm:text-2xl font-medium mb-4">Analysis</div>
+      <div className="sm:text-2xl font-medium mb-4">Analysis of Case Studies</div>
+      <div className="mb-6">
+        For each of the six case studies, we will analyze the interviewee responses to understand
+        how bias influenced the AI's decisions and explore the ethical and practical implications of
+        each scenario.
+      </div>
+      <div className="bg-bgSecondary rounded-lg p-1 mb-6">
+        <div className="flex flex-row items-center justify-between">
+          {Array.from({ length: caseStudies.length }, (_, index) => {
+            const caseNumber = index
+            return (
+              <button
+                key={caseNumber}
+                className={`flex-1 rounded-md transition-colors py-2  ${
+                  selectedCase === caseNumber ? 'bg-bg text-fg' : 'bg-bgSecondary text-fgSecondary'
+                }`}
+                onClick={() => setSelectedCase(caseNumber)}
+              >
+                Case {caseNumber + 1}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+      <div className="sm:text-xl font-medium mb-3">{caseStudies[selectedCase].title}</div>
+      <div className="mb-6">
+        {caseStudies[selectedCase].summary.map((paragraph, index) => (
+          <p key={index} className="mb-3">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      <div className="sm:text-xl font-medium mb-3">Questions</div>
+      <div className="mb-6">
+        <ol className="list-decimal pl-5 space-y-2">
+          {caseStudies[selectedCase].questions.map((question, index) => (
+            <li key={index} className="mb-2">
+              {question}
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div className="sm:text-xl font-medium mb-3">Discussion</div>
+      <div className="mb-6">{caseStudies[selectedCase].discussion}</div>
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
