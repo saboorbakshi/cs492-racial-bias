@@ -163,14 +163,11 @@ export default function Home() {
           </p>
         ))}
       </div>
+      <ButtonLink label={`Take Quiz ${selectedCase + 1} →`} url={'/quiz/' + (selectedCase + 1)} />
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
       <div className="sm:text-2xl font-medium mb-4">Conclusion</div>
-
-      <div className="h-[1px] bg-stroke my-8"></div>
-
-      <div className="sm:text-2xl font-medium mb-4">Quiz</div>
     </div>
   )
 }
