@@ -3,41 +3,8 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from '@/components/Link'
-
-const interviewees = [
-  {
-    name: 'Dan Holtby',
-    role: 'Professor',
-    src: 'not-available.png',
-    company: 'University of Waterloo',
-    companySrc: 'university-of-waterloo.png',
-    youtubeId: '0NFZOjxsusA'
-  },
-  {
-    name: 'Jennifer Aguiar',
-    role: 'Bioinformatician',
-    src: 'jennifer-aguiar.jpeg',
-    company: 'The Hospital for Sick Children',
-    companySrc: 'the-hospital-for-sick-kids.jpeg',
-    youtubeId: '2Fmyextb2Qg'
-  },
-  {
-    name: 'Pedro Ballester',
-    role: 'Machine Learning Specialist',
-    src: 'pedro-ballester.jpeg',
-    company: 'The Hospital for Sick Kids',
-    companySrc: 'the-hospital-for-sick-kids.jpeg',
-    youtubeId: 'Up5Bgq2Vrxs'
-  },
-  {
-    name: 'Scott Davidson',
-    role: 'Senior Bioinformatician',
-    src: 'not-available.png',
-    company: 'The Hospital for Sick Kids',
-    companySrc: 'the-hospital-for-sick-kids.jpeg',
-    youtubeId: 'CFe6isPF6ao'
-  }
-]
+import { interviewees } from '@/data'
+import ButtonLink from '@/components/ButtonLink'
 
 export default function Home() {
   const [selectedInterviewee, setSelectedInterviewee] = useState(interviewees[0])
@@ -105,12 +72,20 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col items-start">
-              <div
-                className={`sm:text-base font-semibold ${
-                  selectedInterviewee.name === interviewee.name ? 'text-blue-500' : ''
-                } group-hover:underline transition-colors`}
-              >
-                {interviewee.name}
+              <div className="flex items-center gap-1">
+                <div
+                  className={`sm:text-base font-semibold ${
+                    selectedInterviewee.name === interviewee.name ? 'text-black' : ''
+                  } group-hover:underline transition-colors`}
+                >
+                  {interviewee.name}
+                </div>
+                {selectedInterviewee.name === interviewee.name && (
+                  <div className="relative flex items-center justify-center p-1">
+                    <div className="absolute size-2 animate-ping rounded-full bg-green-500 opacity-75"></div>
+                    <div className="size-2 rounded-full bg-green-500"></div>
+                  </div>
+                )}
               </div>
               <div className="sm:text-base">{interviewee.role}</div>
               <div className="sm:text-base text-fgSecondary">{interviewee.company}</div>
@@ -118,7 +93,7 @@ export default function Home() {
           </button>
         ))}
       </div>
-      <div className="aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden">
+      <div className="aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden mb-6">
         <iframe
           width="100%"
           height="100%"
@@ -128,10 +103,22 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
+      <ButtonLink
+        label={`Read the Interview Transcript featuring ${selectedInterviewee.name} →`}
+        url={'/transcripts/' + selectedInterviewee.name.toLowerCase().replace(/\s+/g, '-')}
+      />
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
       <div className="sm:text-2xl font-medium mb-4">Analysis</div>
+
+      <div className="h-[1px] bg-stroke my-8"></div>
+
+      <div className="sm:text-2xl font-medium mb-4">Conclusion</div>
+
+      <div className="h-[1px] bg-stroke my-8"></div>
+
+      <div className="sm:text-2xl font-medium mb-4">Quiz</div>
     </div>
   )
 }

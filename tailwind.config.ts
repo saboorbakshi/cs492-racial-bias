@@ -16,7 +16,7 @@ const config: Config = {
         bgSecondary: '#f5f5f5',
         bgTertiary: '#eeeeee',
         fg: '#000000',
-        fgSecondary: '#8a8a8a',
+        fgSecondary: '#808080',
         stroke: '#e0e0e0'
       },
       maxWidth: {
