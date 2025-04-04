@@ -31,12 +31,27 @@ export default function Home() {
         studies, we examine real-world examples where algorithms made discriminatory decisions, and
         propose ways to make AI in healthcare more inclusive and fair.
       </div>
-      <div className="flex flex-row">
-        <Link label="Project Proposal" url="/pdfs/project-proposal.pdf" />
-        <div className="mx-2">•</div>
-        <Link label="Progress Report" url="/pdfs/progress-report.pdf" />
-        <div className="mx-2">•</div>
-        <Link label="Interview Script" url="/pdfs/interview-script.pdf" />
+      <div className="flex flex-wrap gap-2">
+        <Link
+          label="Project Proposal"
+          url="/pdfs/Project Proposal.pdf"
+          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+        />
+        <Link
+          label="Project Update"
+          url="/pdfs/Project Update.pdf"
+          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+        />
+        <Link
+          label="Complete Detailed Cases with References"
+          url="/pdfs/Complete Detailed Cases with References.pdf"
+          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+        />
+        <Link
+          label="Interview Script"
+          url="/pdfs/Interview Script.pdf"
+          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+        />
       </div>
 
       <div className="h-[1px] bg-stroke my-8"></div>
@@ -44,8 +59,8 @@ export default function Home() {
       <div className="sm:text-2xl font-medium mb-4">Interviews</div>
       <div className="mb-6">
         We interviewed four participants, beginning with brief introductions about their background
-        and research. Each was presented with six real-world cases of biased AI in healthcare—three
-        based on gender, three on race. We first offered limited, skewed details to explore their
+        and research. Each was presented with six real-world cases of biased AI in healthcare, with three
+        cases based on gender, and the other three on race. We first offered limited, skewed details to explore their
         assumptions, then revealed the full context for deeper discussion. The interviews concluded
         with reflections on broader impacts and solutions.
       </div>
@@ -54,7 +69,11 @@ export default function Home() {
           <button
             key={index}
             onClick={() => setSelectedInterviewee(interviewee)}
-            className="flex flex-row items-center gap-4 group"
+            className={`flex flex-row items-center gap-4 group rounded-xl p-2 transition-all ${
+              selectedInterviewee.name === interviewee.name
+                ? 'border-2 border-blue-500 bg-blue-50'
+                : 'border border-transparent'
+            }`}
           >
             <div className="relative">
               <Image
@@ -73,26 +92,26 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col items-start">
-              <div className="flex items-center gap-1">
-                <div
-                  className={`sm:text-base font-semibold ${
-                    selectedInterviewee.name === interviewee.name ? 'text-black' : ''
-                  } group-hover:underline transition-colors`}
-                >
-                  {interviewee.name}
-                </div>
-                {selectedInterviewee.name === interviewee.name && (
-                  <div className="relative flex items-center justify-center p-1">
-                    <div className="absolute size-2 animate-ping rounded-full bg-green-500 opacity-75"></div>
-                    <div className="size-2 rounded-full bg-green-500"></div>
-                  </div>
-                )}
+            <div className="flex items-center gap-1">
+              <div
+                className={`sm:text-base font-semibold transition-colors ${
+                  selectedInterviewee.name === interviewee.name ? 'text-black' : 'text-fgSecondary'
+                } group-hover:underline group-hover:text-black`}
+              >
+                {interviewee.name}
               </div>
+            </div>
               <div className="sm:text-base">{interviewee.role}</div>
               <div className="sm:text-base text-fgSecondary">{interviewee.company}</div>
             </div>
           </button>
         ))}
+      </div>
+      <div className="mb-4">
+        <ButtonLink
+          label={`Read the Interview Transcript featuring ${selectedInterviewee.name} →`}
+          url={'/transcripts/' + selectedInterviewee.name.toLowerCase().replace(/\s+/g, '-')}
+        />
       </div>
       <div className="aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden mb-6">
         <iframe
@@ -104,10 +123,6 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
-      <ButtonLink
-        label={`Read the Interview Transcript featuring ${selectedInterviewee.name} →`}
-        url={'/transcripts/' + selectedInterviewee.name.toLowerCase().replace(/\s+/g, '-')}
-      />
 
       <div className="h-[1px] bg-stroke my-8"></div>
 

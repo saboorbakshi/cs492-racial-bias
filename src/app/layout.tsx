@@ -11,7 +11,7 @@ const custom = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'CS 492',
+  title: 'Implications of Biased Healthcare Data',
   description: 'How Biased Clinical Research Data Affects Healthcare Practices'
 }
 

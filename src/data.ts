@@ -1,17 +1,9 @@
 export const interviewees = [
   {
-    name: 'Dan Holtby',
-    role: 'Professor',
-    src: 'not-available.png',
-    company: 'University of Waterloo',
-    companySrc: 'university-of-waterloo.png',
-    youtubeId: '0NFZOjxsusA'
-  },
-  {
     name: 'Jennifer Aguiar',
-    role: 'Bioinformatician',
+    role: 'Clinical Bioinformatician',
     src: 'jennifer-aguiar.jpeg',
-    company: 'The Hospital for Sick Kids',
+    company: 'The Hospital for Sick Children',
     companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: '2Fmyextb2Qg'
   },
@@ -19,17 +11,25 @@ export const interviewees = [
     name: 'Pedro Ballester',
     role: 'Machine Learning Specialist',
     src: 'pedro-ballester.jpeg',
-    company: 'The Hospital for Sick Kids',
+    company: 'The Hospital for Sick Children',
     companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: 'Up5Bgq2Vrxs'
   },
   {
     name: 'Scott Davidson',
     role: 'Senior Bioinformatician',
-    src: 'not-available.png',
-    company: 'The Hospital for Sick Kids',
+    src: 'scott-davidson.jpeg',
+    company: 'The Hospital for Sick Children',
     companySrc: 'the-hospital-for-sick-kids.jpeg',
     youtubeId: 'CFe6isPF6ao'
+  },
+  {
+    name: 'Dan Holtby',
+    role: 'Computer Science Professor',
+    src: 'dan-holtby.png',
+    company: 'University of Waterloo',
+    companySrc: 'university-of-waterloo.png',
+    youtubeId: '0NFZOjxsusA'
   }
 ]
 
@@ -37,8 +37,8 @@ export const caseStudies = [
   {
     title: 'Transgender Patient’s Emergency Misdiagnosed by Algorithmic Bias',
     summary: [
-      'A 32-year-old transgender man arrived at the emergency room with severe abdominal pain. Although he informed staff that he was transgender, the hospital’s electronic health record (EHR) system listed him as male. As a result, clinicians failed to consider pregnancy and misattributed his symptoms to factors like obesity. The patient was, in fact, pregnant and experiencing labour complications. Due to the delay in recognizing this, urgent care was postponed, and tragically, the baby was stillborn.',
-      'This case highlights how rigid, binary classifications in health records — combined with provider assumptions — can lead to critical misdiagnoses. Standard pregnancy-related alerts never triggered because the system registered the patient as male. This highlights the dangers of algorithmic bias and the need for more inclusive healthcare systems that reflect the realities of transgender and non-binary individuals in today’s day and age.'
+      'A 32-year-old transgender man arrived at the emergency room with severe abdominal pain. Although he informed staff that he was transgender, the hospital’s electronic health record (EHR) system listed him as male (Ring, 2019). As a result, clinicians failed to consider pregnancy and misattributed his symptoms to factors like obesity. The patient was, in fact, pregnant and experiencing labour complications. Due to the delay in recognizing this, urgent care was postponed, and tragically, the baby was stillborn (Ring, 2019).',
+      'This case highlights how rigid, binary classifications in health records — combined with provider assumptions — can lead to critical misdiagnoses. Standard pregnancy-related alerts were never triggered because the system registered the patient as male. This highlights the dangers of algorithmic bias and the need for more inclusive healthcare systems that reflect the realities of transgender and non-binary individuals in today’s day and age (Compton, 2019; Cirillo et al., 2020).'
     ],
     questions: [
       'Imagine you’re a physician treating a patient with severe abdominal pain and no visible injuries. What diagnoses would immediately come to mind, and what additional information would you ask for?',
@@ -59,8 +59,8 @@ export const caseStudies = [
   {
     title: 'Symptom Checker Underestimates a Woman’s Heart Attack',
     summary: [
-      'An AI-powered symptom-checker app provided dangerously different recommendations for a man and a woman with identical symptoms. Both were 59-year-old smokers reporting sudden chest pain and nausea. The only variable was gender. The male patient was warned of potential heart issues, including unstable angina or a heart attack, and advised to seek emergency care. The female patient, however, was told her symptoms might be due to depression or anxiety, with no urgent care recommended.',
-      'This discrepancy highlights how AI tools can replicate and amplify gender bias, potentially leading to delayed treatment or misdiagnosis. In this case, the AI appeared to rely on statistical trends that underrepresent heart attacks in women—overlooking the real and serious risk of cardiac events in female patients. Public concern grew after this example came to light, as it revealed how gender stereotypes (“women are anxious, men have heart attacks”) can shape algorithmic decisions.',
+      'An AI-powered symptom-checker app provided dangerously different recommendations for a man and a woman with identical symptoms. Both were 59-year-old smokers reporting sudden chest pain and nausea. The only variable was gender. The male patient was warned of potential heart issues, including unstable angina or a heart attack, and advised to seek emergency care. The female patient, however, was told her symptoms might be due to depression or anxiety, with no urgent care recommended (Trendall, 2024).',
+      'This discrepancy highlights how AI tools can replicate and amplify gender bias, potentially leading to delayed treatment or misdiagnosis (Joshi, 2024). In this case, the AI appeared to rely on statistical trends that underrepresented heart attacks in women—overlooking the real and serious risk of cardiac events in female patients (Cirillo et al., 2020). Public concern grew after this example came to light, as it revealed how gender stereotypes, like “women are anxious and men have heart attacks”, can shape algorithmic decisions (Trendall, 2024).',
       'Ultimately, the case highlights the critical importance of designing healthcare AI systems that recognize and adjust for bias. Life-threatening conditions must be considered for all patients—regardless of gender—especially when symptoms are shared.'
     ],
     questions: [
@@ -85,8 +85,8 @@ export const caseStudies = [
   {
     title: 'Male Breast Cancer Patient Denied Treatment by Gendered Algorithm',
     summary: [
-      'Raymond Johnson, a 26-year-old man from South Carolina, was denied Medicaid coverage for breast cancer treatment solely because of his gender. Although diagnosed with breast cancer, he was ruled ineligible for a federal Medicaid program that covered patients screened through certain government programs — programs that only screened women. As a result, the insurance algorithm automatically excluded men, leaving Raymond without coverage for the chemotherapy and surgery he urgently needed.',
-      'This case exemplifies how gender bias embedded in policy and algorithmic systems can have life-threatening consequences. The program failed to account for the fact that men can also develop breast cancer, effectively barring male patients from life-saving care. Advocacy groups, including the ACLU, condemned the exclusion as discriminatory and pushed for reform. The case prompted broader conversations about the need to design healthcare systems and policies that are inclusive of all genders and reflective of real patient populations.'
+      'Raymond Johnson, a 26-year-old man from South Carolina, was denied Medicaid coverage for breast cancer treatment solely because of his gender. Although diagnosed with breast cancer, he was ruled ineligible for a federal Medicaid program that covered patients screened through certain government programs — programs that only screened women. As a result, the insurance algorithm automatically excluded men, leaving Raymond without coverage for the chemotherapy and surgery he urgently needed (Park, 2022).',
+      'This case exemplifies how gender bias embedded in policy and algorithmic systems can have life-threatening consequences. The program failed to account for the fact that men can also develop breast cancer, effectively barring male patients from life-saving care (Joshi, 2024). Advocacy groups, including the ACLU, condemned the exclusion as discriminatory and pushed for reform (Park, 2022). The case prompted broader conversations about the need to design healthcare systems and policies that are inclusive of all genders and reflective of real patient populations.'
     ],
     questions: [
       'When a young patient (let’s say 25 years old) presents with a lump in their chest, what key factors guide your differential diagnosis and decision to recommend further testing?',
@@ -109,8 +109,8 @@ export const caseStudies = [
   {
     title: 'Anthony Randall and Kidney Transplant Algorithm Bias',
     summary: [
-      'Anthony Randall is a Black man from Los Angeles who was on dialysis, waiting for a kidney transplant for over five years (TheGrio, 2023). What he did not know is that an algorithm from the transplant system incorporated a race-based “modifier” that made Black patients’ kidney scores seem better than they were. This modifier caused Randall’s kidney disease to be less severe than it truly was, leading to his placement on the national transplant waiting list being significantly delayed. In mid-2023, he filed a case against his hospital (Cedars Sinai Medical Center) and the United Network for Organ Sharing alleging that he was unfairly deprived of a fair chance to get the transplant because of the racially biased formula. It was no secret that the algorithm had a bias.',
-      "The board of the transplant system understood the modifier was resulting in Black patients' illnesses being severely underestimated. By early 2023, all hospitals were directed to stop the usage of race adjustment and Black patients’ waiting times were to be changed to reflect the postponement. Randall claims that had these changes come sooner; he could have already had the kidney that he desperately needs. His case highlights how the goal of the clinical algorithm was good, but the execution was not due to the insertion of race which caused Black patients to not receive quality care in a timely manner."
+      'Anthony Randall is a Black man from Los Angeles who was on dialysis, waiting for a kidney transplant for over five years (TheGrio, 2023). What he did not know is that an algorithm from the transplant system incorporated a race-based “modifier” that made Black patients’ kidney scores seem better than they were. This modifier caused Randall’s kidney disease to be less severe than it truly was, leading to his placement on the national transplant waiting list being significantly delayed (TheGrio Staff, 2023). In mid-2023, he filed a case against his hospital (Cedars Sinai Medical Center) and the United Network for Organ Sharing alleging that he was unfairly deprived of a fair chance to get the transplant because of the racially biased formula (Penn Medicine, 2024). It was no secret that the algorithm had a bias (Penn Medicine, 2024).',
+      "The board of the transplant system understood the modifier was resulting in Black patients' illnesses being severely underestimated. By early 2023, all hospitals were directed to stop the usage of race adjustment and Black patients’ waiting times were to be changed to reflect the postponement (Penn Medicine, 2024). Randall claims that had these changes come sooner; he could have already had the kidney that he desperately needs. His case highlights how the goal of the clinical algorithm was good, but the execution was not due to the insertion of race which caused Black patients to not receive quality care in a timely manner."
     ],
     questions: [
       'Imagine you’re a healthcare provider evaluating a patient with kidney disease for transplant eligibility. What clinical factors would you typically consider when assessing disease severity and readiness for transplant?',
@@ -132,8 +132,8 @@ export const caseStudies = [
   {
     title: 'Dr. Noha Aboelata and Pulse Oximeter Bias During COVID-19',
     summary: [
-      'During the pandemic, race-related biases in medical technology confronted Dr. Noha Aboelata, a family physician and the Chief Executive Officer of Roots Community Health Center based in Oakland. In late 2020, one of her patients was an elderly African American gentleman who suffered from chronic lung illness (Department of Epidemiology & Biostatistics, UCSF, 2022). One of the checks done previously, the pulse oxygenation check, revealed that his oxygen saturation levels were high. Even though the device showed a relatively normal oxygen level, Dr. Aboelata’s clinical instinct indicated the patient was much more distressed. She conducted an arterial blood gas test which confirmed her worst fears, the oxygen content in the patient’s blood was too low and he needed oxygen.',
-      'Sometime later, she came across an article in the New England Journal of Medicine that confirmed her hunch; the oximeters were unable to register low oxygen levels in dark skinned patients as compared to white patients. She and her colleagues were outraged by a device that was supposed to help their patients but was grossly inaccurate for the Black population. Finally, her clinic participated in a class-action lawsuit against easier manufacturers and sellers of pulse oximeters for more detailed warnings and up-to-date devices. She did not stand idle while demanding the FDA take pulse oximeter discrimination towards races very seriously.'
+      'During the pandemic, race-related biases in medical technology confronted Dr. Noha Aboelata, a family physician and the Chief Executive Officer of Roots Community Health Center based in Oakland. In late 2020, one of her patients was an elderly African American gentleman who suffered from chronic lung illness (UCSF, 2022). One of the checks done previously, the pulse oxygenation check, revealed that his oxygen saturation levels were high. Even though the device showed a relatively normal oxygen level, Dr. Aboelata’s clinical instinct indicated the patient was much more distressed. She conducted an arterial blood gas test which confirmed her worst fears, the oxygen content in the patient’s blood was too low and he needed oxygen.',
+      'Sometime later, she came across an article in the New England Journal of Medicine that confirmed her hunch; the oximeters were unable to register low oxygen levels in dark-skinned patients as compared to white patients, due to differences in how light is absorbed by the skin (Allen, 2024). She and her colleagues were outraged by a device that was supposed to help their patients but was grossly inaccurate for the Black population. Finally, her clinic participated in a class-action lawsuit against easier manufacturers and sellers of pulse oximeters for more detailed warnings and up-to-date devices (UCSF, 2022). She did not stand idle while demanding the FDA take pulse oximeter discrimination towards races very seriously.'
     ],
     questions: [
       "Imagine you're treating a patient with chronic lung disease during a respiratory pandemic. If a pulse oximeter shows normal oxygen saturation, but the patient appears visibly distressed, what would you do next?",
@@ -156,8 +156,8 @@ export const caseStudies = [
   {
     title: 'Alex Morales and Smartwatch Blood-Oxygen Reading Bias',
     summary: [
-      'Alex Morales, a New York resident, brought attention to a case of possible racial bias in the consumer health device, Apple Watch (Stempel, 2023). Morales, who has a darker complexion, bought an Apple Watch with the expectation that its blood oxygen sensor would accurately log his oxygen levels for fitness and health purposes. To his surprise, he later found out that the device’s oximeter may not work well with people from his demographic.',
-      'In late 2022, Morales initiated a class action lawsuit against Apple for allegedly containing a blood oxygen app that was racially discriminatory and did not function as promised for non-white customers. Supported in part by complaints of other studies claiming that more advanced pulse oximetry devices are “massively” less useful on people with darker skin, Morales asserted that Apple owed the public an explanation. After all, paying smartphone users assumed that the device would be equal for all users, which is not the case. While the judge dismissed the case in 2023, it did start an important discussion r[] products. Their case showed the world that there are, in fact, indirect biases in medical-grade equipment. This shows us that Alex Morales and the rest of the community are still subjected to discrimination based on race even in the technology they choose to use. Moreover, it demonstrates the keen eye for responsibility the tech industry has in these situations.'
+      'Alex Morales, a New York resident, brought attention to a case of possible racial bias in the consumer health device, Apple Watch (Stempel, 2023). Morales, who has a darker complexion, bought an Apple Watch with the expectation that its blood oxygen sensor would accurately log his oxygen levels for fitness and health purposes. To his surprise, he later found out that the device’s oximeter may not work well with people from his demographic (Stempel, 2023).',
+      'In late 2022, Morales initiated a class action lawsuit against Apple for allegedly containing a blood oxygen app that was racially discriminatory and did not function as promised for non-white customers. Supported in part by complaints of other studies claiming that more advanced pulse oximetry devices are “massively less useful on people with darker skin”, Morales asserted that Apple owed the public an explanation (Stempel, 2023; Nicholls, 2022). After all, paying smartphone users assumed that the device would be equal for all users, which is not the case. While the judge dismissed the case in 2023, it did start an important discussion regarding Apple products. Their case showed the world that there are, in fact, indirect biases in medical-grade equipment. This shows us that Alex Morales and the rest of the community are still subjected to discrimination based on race even in the technology they choose to use. Moreover, it demonstrates the keen eye for responsibility the tech industry has in these situations.'
     ],
     questions: [
       'If you purchase a health-monitoring device like a smartwatch, what level of accuracy and reliability would you expect — especially when it comes to tracking critical health metrics like blood oxygen levels?',
@@ -181,24 +181,24 @@ export const caseStudies = [
 
 export const conclusionSections = [
   {
-    title: 'Why it Matters',
+    title: 'Why it matters?',
     content:
-      'Everyone should have equal, unbiased access to healthcare, but right now, that’s not the case. Systemic disparities already exist, and if we’re not careful, AI could make them worse. In fact, by 2022, nearly 20% of U.S. hospitals had integrated some form of AI into their practices (Baten & Abdul, 2022). While this is exciting progress, it also raises concerns. These technologies are being used to make decisions about diagnoses, treatment plans, and even who gets access to care. If the data used to train these algorithms is biased, then the outcomes will be too. That means people who are already marginalized, i.e., racial minorities, transgender individuals, and others, could be left behind or even harmed by the very systems meant to help them. That’s why it matters: because we’re not just talking about code or data, we’re talking about people’s lives, and ensuring everyone gets the care they need and deserve.'
+      "Everyone should have equal, unbiased access to healthcare, but right now, that’s not the case. Systemic disparities already exist, and if we’re not careful, AI could make them worse. In fact, by 2022, nearly 20% of U.S. hospitals had integrated some form of AI into their practices (Baten & Abdul, 2022). While this is exciting progress, it also raises concerns. These technologies are being used to make decisions about diagnoses, treatment plans, and even who gets access to care. If the data used to train these algorithms is biased, then the outcomes will be too. That means people who are already marginalized, i.e., racial minorities, transgender individuals, and others, could be left behind or even harmed by the very systems meant to help them. That’s why it matters: because we’re not just talking about code or data, we’re talking about people’s lives, and ensuring everyone gets the care they need and deserve."
   },
   {
-    title: 'What we learnt',
+    title: 'What we learnt?',
     content:
-      'One of the biggest things we’ve learned is that bias in healthcare is not just a theoretical issue, it has serious, real-world consequences. For example, in one tragic case, a transgender man, assigned female at birth, was marked as male in the system. Although he had disclosed he was transgender, clinicians failed to consider pregnancy as a possibility. As a result, care was delayed, and the baby was stillborn. In another case, a Black man waited over five years for a kidney transplant because the algorithm used to assess kidney function artificially boosted scores for Black patients, making them seem healthier than they really were. These examples show that bias often doesn’t come from the AI itself, it comes from the data it’s trained on and the assumptions of the people building these systems. I’ve learned that fixing these systems after they’re deployed is extremely difficult. That’s why we need to design them responsibly from the ground up, this means collecting inclusive, representative data and ensuring diverse voices are at the table when these tools are being developed.'
+      "One of the biggest things we’ve learned is that bias in healthcare is not just a theoretical issue, it has serious, real-world consequences. For example, in one tragic case, a transgender man, assigned female at birth, was marked as male in the system. Although he had disclosed he was transgender, clinicians failed to consider pregnancy as a possibility. As a result, care was delayed, and the baby was stillborn. In another case, a Black man waited over five years for a kidney transplant because the algorithm used to assess kidney function artificially boosted scores for Black patients, making them seem healthier than they really were. These examples show that bias often doesn’t come from the AI itself, it comes from the data it’s trained on and the assumptions of the people building these systems. I’ve learned that fixing these systems after they’re deployed is extremely difficult. That’s why we need to design them responsibly from the ground up, this means collecting inclusive, representative data and ensuring diverse voices are at the table when these tools are being developed."
   },
   {
     title: 'What was challenging?',
     content:
-      'Finding concrete examples of biased healthcare data leading to bad decisions. We really wanted this because we did not want to see cases through statistics but as real people. Making meaningful questions for the interviews.'
+      "One of the most challenging aspects of this project was finding concrete, real-world examples of biased healthcare data that led to harmful decisions. We weren’t just interested in abstract statistics or general trends — we wanted stories that showed how these biases affected real people. It was important to us that the impact of biased AI wasn't reduced to numbers, but instead framed through human experiences. Another challenge was crafting meaningful and thought-provoking questions for the interviews. We had to ensure they weren’t too leading or vague, and that they encouraged deep reflection and discussion from our participants. Striking the right balance between being respectful, clear, and insightful required a lot of revision and consideration."
   },
   {
     title: 'If we had more time, what else might we have done?',
     content:
-      'We would have liked to conduct a greater number of interviews with a more diverse sample group. We also would have created a more interactive quiz that explains the case study while the participant goes through it.'
+      "With more time, we would have liked to conduct a greater number of interviews, especially with a more diverse sample group representing a broader range of backgrounds, roles, and lived experiences. This would have allowed us to gain richer insights and better understand how bias in healthcare data impacts different communities. In addition, we would have liked to enhance the quiz section by making it more interactive and educational, ideally guiding participants through the case studies with contextual hints, explanations, and real-time feedback. This approach could have helped users not only test their understanding but also learn and reflect as they progressed."
   }
 ]
 
@@ -376,7 +376,7 @@ export const transcripts: Record<string, string[]> = {
     "I mean, outrageous, right? Like that you not, not even a doctor. It's not a person at all. It's just the computer says no. Right. It's. That's, that's like a classic dystopian novel sort of short story sort of thing.",
     'And maybe how do you think future healthcare professionals can be trained to try to recognize and challenge the biases that appear, like these ones in medical systems or software, so that, you know, when they see like, for example, a black patient being denied for like five years, like, how can, how can we draw the line so that professionals can try to recognize and challenge these biases based off their own judgment?',
     "I don't know. I'm better with computers than people. Right? Like, I've, I, I mean, I think part of medical training should be devices aren't, aren't perfect if, if something, if something seems wrong. Never trust one test, Never trust one device. And anyone who's worked with computers knows not to trust them.",
-    "It's pretty funny. I talked to someone who's from sick kids and they're more on the machine learning side and he says he said a different thing than most people where he's like, he trusts machines more than humans because he said like, humans will also have their own biases, sometimes even more. Yeah, sometimes he usually trusts a machine more than a human's events.",
+    "It's pretty funny. I talked to someone who's from SickKids and they're more on the machine learning side and he says he said a different thing than most people where he's like, he trusts machines more than humans because he said like, humans will also have their own biases, sometimes even more. Yeah, sometimes he usually trusts a machine more than a human's events.",
     "Yeah, and that's certainly true. And, and it can be bad. Like the, the heart attack example. Actual doctors can be a lot worse than the, than the program was in that, in that case, like if I forget the breakdown, like, but a lot of doctors will not consider fibromyalgia in men, even though It's. It's not. If it's not like the breast cancer case where it's 1%, it's like it happens twice as often in women as it does in men, but that's not. Well, it'll never happen. But a lot of doctors get the impression that it's less likely, so you won't see it. So look for other things first. Even though the difference is not that dramatic. I wasn't. I wasn't speaking bias about bias. I. I just meant that people who program computers make mistakes a lot. So when you're trusting a computer, you're trusting a person at the end of the day.",
     "Yeah, that is a good point. Yeah. That's all my questions for you for today. I really appreciate your time. Yeah, thank you for taking the time to share your opinions on this topic of, like, bias clinical research data affecting healthcare practices. I think we're super knowledgeable about it, but I still appreciate you participating and answering. Do you have any closing remarks you want to say or anything?",
     'Nothing that I can think of.',
@@ -527,7 +527,7 @@ export const transcripts: Record<string, string[]> = {
     'Yeah, I like your point about like you mentioned how you should have kind of two possibilities, maybe one the most likely and one the most fatal or like most serious. And that way a clinician knows they should probably treat for this, but maybe also check for this just in case. That was like a, a nice point that I think.',
     "Yeah. And maybe it's maybe the most serious one is like a. You might just want to like ask a couple follow up questions just to really rule this one out. It's probably this, but just FYI, this is a possibility, a slim possibility, but maybe you want to ask a couple follow up questions.",
     "The next question I have for you is what kind of training or human oversight do you think should go into building and testing these AIs, like whether they're simple injectors or any sort of AI system to avoid any sort of gender or racially spice.",
-    "I'm sort of imagining like, and maybe it's top of mind because. Do you still get emails from sick kids? Yeah. Did you see the like one about sky yesterday, like to kids AI?",
+    "I'm sort of imagining like, and maybe it's top of mind because. Do you still get emails from SickKids? Yeah. Did you see the like one about sky yesterday, like to kids AI?",
     'Yeah.',
     "So, because that's, I think that's top of mind. It sounded like they almost had like a three pronged approach and one of those prongs was like the sky service where they're like, we have experts here. If you want to implement AI, come talk to us. And we will, we have people who will be able to help you do that. Like, well, but also ethically and making sure that we're like HIPAA compliant and private and like all these different things. And so I'm imagining like there being some sort of on like every research team that or like any sort of like team that's trying to make AI. I feel like there should be like, I say this because I am one, but the science nerds, like the like computer people who are like doing the, the actual like coding but there needs to Be like that. Almost like a review board to be like, okay, with our expertise? Is the tool you made actually giving results that makes, like, biological sense that are, to the best of their ability, void of these, you know, biases? Or at least, like, makes them very clear. Because, like, like I said, like, with the sensitivity, specificity, it's not as though, you know, every pipeline that we operate has, like, 100% specificity and 100% sensitivity. That's often very difficult to achieve, if not impossible. But the limitations or, like, the what the, you know, false positive rate is, the what the false negative rate is. If there are certain gaps that, like, certain things that we're not able to detect, we make those really clear. They're huge disclaimers to anybody who is, like, using our tests. And I think that would be the thing where it's like, okay, we need to make sure that we've got some sort of advisory board that is, like, testing and making sure that, like, to the best of the ability of, like, them as experts, we're not including all these biases. And if there is a limitation, like, because maybe there's biases, because, again, like, the research that we've done in the past, like, is full of biases. Maybe there's not better research to be giving. But we've decided that the benefit of the tool outweighs the risk. But you then need to have a huge disclaimer about the risk or the limitations there. Like, if for whatever reason, which I doubt, there's no possible way to make one of those Pulse readers work for different skin colors, I strongly do not believe that's the case. I believe that we could do it. But if for some reason it's impossible, then that needs to be very, very explicitly stated of. This will not work, or at least it will not work as well for these. We can't just, like, pretend that the biases aren't there.",
     "That makes sense. At least being transparent and acknowledging those biases so that the healthcare professionals or even the normal people that are using these things will have an idea that this isn't 100% accurate. So just take it as a ballpark.",
