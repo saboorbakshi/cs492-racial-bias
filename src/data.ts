@@ -48,7 +48,13 @@ export const caseStudies = [
       'In your opinion, now knowing that the person was transgender and pregnant, what role did algorithmic bias, system design, or any other factors that you can think of, play in the AI’s failure to identify pregnancy risk in this case?',
       'What changes would you suggest — to electronic health records, triage systems, provider training, etc. — to prevent similar outcomes for transgender patients in the future?'
     ],
-    discussion: []
+    discussion: [
+      'A recurring theme across all interviews is how assumptions about gender influence clinical reasoning. When asked how they would respond to a patient presenting with abdominal pain, many participants admitted that their diagnostic thought process would shift based on the patient’s gender or perceived gender. Jennifer Aguiar, for instance, explained that knowing the patient was a woman would prompt her to consider reproductive health issues such as ovarian cysts or pregnancy. In contrast, if the patient were identified as a man, she and others like Dan Holtby and Scott Davidson said they would focus on gastrointestinal or urinary causes. This shift illustrates how clinical heuristics tied to gender can lead to oversights, particularly when treating transgender patients whose anatomy may not align with gender-based assumptions.',
+      'Aguiar and Pedro Ballester both emphasized the importance of distinguishing between gender identity and sex assigned at birth within health records. Aguiar pointed out that while gender identity must be respected, it is equally important for medically relevant data—such as the presence of a uterus or ovaries—to be accessible in clinical decision-making. Ballester noted that separating these two data points within electronic health records (EHRs) is essential, especially as more hospitals adopt AI-driven alerts and triage systems. If a system only recognizes gender identity and not biological anatomy, crucial alerts—such as those related to pregnancy—can be missed, with life-threatening consequences.',
+      'Algorithmic bias was another concern shared across the interviews. Aguiar invoked the “garbage in, garbage out” principle, stressing that if transgender individuals are not adequately represented in the datasets that train AI models, the resulting tools will fail to serve them. Ballester agreed and advocated for designing more sophisticated data pipelines that take into account variables like hormone therapy or surgical history. Without such nuance, AI systems risk reinforcing existing biases and becoming blind to outliers.',
+      'Scott Davidson offered a slightly different perspective, attributing the failure less to systems and more to human error. He noted that in some cases, even when EHRs are limited, the necessary information is verbally communicated by the patient but not acted upon. This highlights the need for better training so that healthcare providers can interpret and apply contextual information more effectively.',
+      'Ultimately, the interviews point to four clear action items: EHRs should include both sex assigned at birth and gender identity; AI systems must be trained on inclusive data; clinical education should prioritize transgender healthcare; and empathy must remain at the core of every patient interaction. Only through this multidimensional approach can healthcare become truly equitable.'
+    ]
   },
   {
     title: 'Symptom Checker Underestimates a Woman’s Heart Attack',
@@ -67,7 +73,14 @@ export const caseStudies = [
       'How should an AI triage system handle gender-based statistical differences? Should it present all serious possibilities regardless of probability, especially in potentially fatal scenarios?',
       'Was the AI’s response defensible, given it followed statistical trends, or should its priority have been patient safety over data-driven averages? Where’s the line between data and ethical care? Do you believe it failed in its duty to provide safe recommendations?'
     ],
-    discussion: []
+    discussion: [
+      "A recurring theme in all interviews is the shared belief that chest pain and nausea in a 59-year-old should always be treated seriously, regardless of gender. All four experts immediately suspected a cardiac issue based on the symptoms presented, indicating a strong baseline understanding that aligns with safe clinical practice. This uniformity contrasts sharply with the AI's gendered recommendations in the case study, underscoring a key flaw in the AI’s decision-making: its overreliance on statistical generalizations rather than patient-centered reasoning.",
+      'Pedro Ballester and Jennifer Aguiar most clearly articulated the limitations of using population-level statistics to guide decisions for individual patients. Ballester noted that while gender-based prevalence may guide public health policy, applying such trends to individual care often results in error. Aguiar echoed this, stating that "an individual is not a statistic" and emphasizing the ethical obligation to consider rare but serious conditions like heart attacks in women. Both experts championed a shift in AI systems from probability-driven outputs toward risk-based frameworks that prioritize patient safety—particularly in potentially fatal scenarios.',
+      'Meanwhile, Dan Holtby and Scott Davidson emphasized the importance of context in AI usage. Holtby argued that AI should always err on the side of caution—especially in public-facing tools—highlighting that "it should say this could be serious, so you should talk to a doctor." Davidson also stressed that AI’s role should be determined by its end-user. For doctors, comprehensive diagnostic possibilities make sense; for patients, such tools must tread carefully to avoid both false reassurance and unwarranted panic.',
+      'A consensus emerges around the need for transparency and breadth in AI outputs. All four experts favored a model where AI systems list multiple diagnostic possibilities, clearly indicating their likelihood and severity, rather than fixating on the statistically most probable condition. Importantly, they agreed that potentially fatal outcomes must never be excluded, even if they are statistically less common.',
+      'The experts collectively rejected the AI’s actions in this case as ethically flawed. While they acknowledged that the AI was technically consistent with its training data, they all argued that the model ultimately failed in its duty to provide safe and equitable care. As Pedro Ballester concluded, "if we know it\'s wrong, you just need to fix it."',
+      'These interviews powerfully underscore that statistical data must be used carefully in AI healthcare systems. In life-or-death situations, algorithms must prioritize safety, fairness, and transparency over blind adherence to historical trends. To earn trust and ensure ethical care, AI systems must be designed not just to reflect medical data—but to actively challenge its biases.'
+    ]
   },
   {
     title: 'Male Breast Cancer Patient Denied Treatment by Gendered Algorithm',
@@ -108,7 +121,13 @@ export const caseStudies = [
       'How can health systems design clinical algorithms that avoid reinforcing historical or systemic inequities — especially those tied to race?',
       'What steps, if any, should be taken to make things right for patients who were harmed by biased algorithms — such as adjusting wait times, issuing apologies, or offering compensation?'
     ],
-    discussion: []
+    discussion: [
+      'All four experts recognized that eligibility for transplants involves a combination of clinical urgency and donor compatibility. However, once the discussion shifted to the inclusion of race-based modifiers, concerns intensified. Dan Holtby highlighted that any inclusion of race must be grounded in “very sure statistics,” noting that inflating a patient’s numbers to appear healthier can be disastrously misleading. Jennifer Aguiar offered historical context, pointing to the use of spirometry in lung function assessments and how these practices are rooted in eugenics and outdated racial pseudoscience—paralleling the eGFR case. She strongly condemned the embedded race adjustments as “a horrible idea” and emphasized that biases often go unnoticed because they are baked into tools clinicians use unknowingly.',
+      'Pedro Ballester emphasized the need for ongoing performance checks, pointing out that any algorithm—whether AI-driven or not—must be continually validated and recalibrated as demographic distributions change. He underlined the double harm done: worse medical outcomes for marginalized patients and a reinforced distrust in healthcare systems. Similarly, Scott Davidson asserted that even if algorithms begin with good intentions, the moment they are revealed to cause harm, immediate removal is necessary. He considered the continued use of such biased systems not just negligent but potentially malicious.',
+      'A shared theme across all interviews is the need for accountability. Once bias is identified, healthcare institutions must act promptly. Whether through revising wait times, offering public apologies, or even compensation, restoring trust with affected communities is vital. Aguiar especially highlighted the importance of rebuilding trust with marginalized populations, arguing that it isn’t just morally necessary but scientifically beneficial to ensure inclusive data in medical research.',
+      'The experts also stressed proactive strategies. Suggestions included diversifying training datasets, prospectively auditing algorithms, and ensuring transparency in how algorithms influence decisions. Davidson and Ballester emphasized testing with both historical and real-time data, while Aguiar underscored addressing systemic biases in the data we use before entrusting it to machine learning tools.',
+      'In sum, these interviews illustrate a collective understanding that while clinical algorithms aim to improve decision-making, their misuse—especially when embedding race without rigorous justification—can perpetuate systemic injustices. Ethical healthcare demands that such tools are scrutinized, regularly audited, and always serve equitable, patient-centered care.'
+    ]
   },
   {
     title: 'Dr. Noha Aboelata and Pulse Oximeter Bias During COVID-19',
@@ -125,7 +144,14 @@ export const caseStudies = [
       'How should future healthcare providers be trained to detect and challenge device-based bias in patient care?',
       'For communities that have been historically underserved or harmed by biased tools, how can the medical system begin to rebuild trust and ensure safer, more equitable care?'
     ],
-    discussion: []
+    discussion: [
+      'All four participants echoed a critical theme: clinical judgment must take precedence over blind reliance on technology. Jennifer Aguiar passionately emphasized trusting the patient first, asserting that if someone appears distressed, that should supersede a device’s reading. She highlighted that tools can fail and are not immune to technical shortcomings or baked-in biases. Similarly, Scott Davidson affirmed that proper understanding of how a device works is crucial. His statement, “you need to know the ins and outs of the tools you use,” underscores the importance of provider education, not just in use but in function and limitations.',
+      'Pedro Ballester provided a more systemic critique, pointing to the failures of regulatory bodies like the FDA, which often approve tools based on limited data. He notes that original testing often overlooks diverse populations, and ongoing evaluation of devices is rare. His suggestion to involve experts from other domains—technical fields like machine learning and engineering—in hospital decision-making reflects a proactive and cross-disciplinary solution to a deeply embedded issue.',
+      'Dan Holtby recognized the racial bias but was less confident in proposing concrete actions. His acknowledgment that tools like pulse oximeters “shine light through the skin,” and therefore may be impacted by skin tone, shows an awareness of the technical root of the bias. However, his uncertainty around regulation and rebuilding trust reveals a broader issue: not all clinicians or researchers may feel equipped to challenge the systems they work within.',
+      "Collectively, the responses reflect a consensus that medical devices must be critically evaluated for bias, especially those as ubiquitous as pulse oximeters. The professionals agree that testing across diverse demographics is not just necessary but urgent. Aguiar’s comment that “we’ve baked bias into technology” points to a disturbing reality—bias isn't always accidental; it's often institutionalized through omission.",
+      'Rebuilding trust with historically underserved communities requires transparency, empathy, and accountability. As Scott Davidson noted, institutions must demonstrate that their tools work for everyone, not just a dominant subset. That starts with openly admitting the limitations of past tools, educating clinicians to question and investigate device outputs, and reforming regulatory standards to mandate inclusive testing.',
+      'Ultimately, the interviewees reinforce the lesson exemplified by Dr. Aboelata’s case: technology should support—not replace—human judgment, especially when lives hang in the balance.'
+    ]
   },
   {
     title: 'Alex Morales and Smartwatch Blood-Oxygen Reading Bias',
@@ -143,7 +169,36 @@ export const caseStudies = [
       'How can the tech industry ensure that innovations in health and wellness tools are tested fairly across diverse populations? Who should be involved in that process?',
       'What does this case reveal about the intersection between technology, race, and access to accurate health information in the digital age? How can companies rebuild or maintain trust with users who may feel excluded or misled by biased product performance?'
     ],
-    discussion: []
+    discussion: [
+      'Across the interviews, a key theme that emerges is expectation versus reality. While professionals like Dan Holtby and Pedro Ballester expect some level of accuracy from devices like smartwatches—particularly for commonly measured health metrics such as heart rate and blood oxygen—both acknowledge that if a product fails to perform reliably across different demographics, that information must be disclosed transparently. Holtby emphasizes that companies should publish the accuracy rates and limitations of their sensors, especially if the shortcomings disproportionately affect certain groups. Ballester agrees, adding that burying such disclaimers in lengthy terms and conditions is not sufficient; essential limitations must be made visible and accessible to all consumers.',
+      'In contrast, both Jennifer Aguiar and Scott Davidson express general skepticism toward the reliability of smartwatches for medical-grade monitoring. Aguiar frames these devices as offering only a ballpark estimate and asserts she would not rely on them for critical medical insight. Nonetheless, she emphasizes that if a device fails to serve a specific demographic, users deserve to know—especially if their safety or health decisions are at stake. Davidson, while similarly distrusting of smartwatch metrics, maintains a more detached view, arguing that unless a device is marketed as medical-grade, users should temper their expectations.',
+      'A second major theme is representation and design bias. Both Ballester and Aguiar highlight how the lack of diversity in clinical trials and design teams leads to blind spots in product development. Ballester explains that product testing often reflects the demographics of those developing the technology—typically white, university-based populations—thus inadvertently excluding others. Aguiar goes further to point out the systemic burden on marginalized communities to advocate for their inclusion in systems that have historically overlooked them.',
+      'Finally, corporate accountability and trust are central to this discussion. All four experts agree that companies like Apple have a moral obligation to either ensure equitable performance or disclose limitations. Holtby calls for regulatory oversight if companies advertise health benefits, while Aguiar advocates for apologies, reimbursement, and tangible changes to regain consumer trust. Ballester and Davidson offer more pragmatic views: Ballester suggests that alternate products be developed for underserved demographics, while Davidson believes accountability depends entirely on how the product is marketed.',
+      'In sum, these interviews underscore the urgent need for transparency, inclusive design, and ethical responsibility in the health-tech industry. As wearable health devices become more integrated into personal health management, especially for underserved populations, companies must be held to higher standards—not just in performance, but in fairness.'
+    ]
+  }
+]
+
+export const conclusionSections = [
+  {
+    title: 'Why it Matters',
+    content:
+      'Everyone should have equal, unbiased access to healthcare, but right now, that’s not the case. Systemic disparities already exist, and if we’re not careful, AI could make them worse. In fact, by 2022, nearly 20% of U.S. hospitals had integrated some form of AI into their practices (Baten & Abdul, 2022). While this is exciting progress, it also raises concerns. These technologies are being used to make decisions about diagnoses, treatment plans, and even who gets access to care. If the data used to train these algorithms is biased, then the outcomes will be too. That means people who are already marginalized, i.e., racial minorities, transgender individuals, and others, could be left behind or even harmed by the very systems meant to help them. That’s why it matters: because we’re not just talking about code or data, we’re talking about people’s lives, and ensuring everyone gets the care they need and deserve.'
+  },
+  {
+    title: 'What we learnt',
+    content:
+      'One of the biggest things we’ve learned is that bias in healthcare is not just a theoretical issue, it has serious, real-world consequences. For example, in one tragic case, a transgender man, assigned female at birth, was marked as male in the system. Although he had disclosed he was transgender, clinicians failed to consider pregnancy as a possibility. As a result, care was delayed, and the baby was stillborn. In another case, a Black man waited over five years for a kidney transplant because the algorithm used to assess kidney function artificially boosted scores for Black patients, making them seem healthier than they really were. These examples show that bias often doesn’t come from the AI itself, it comes from the data it’s trained on and the assumptions of the people building these systems. I’ve learned that fixing these systems after they’re deployed is extremely difficult. That’s why we need to design them responsibly from the ground up, this means collecting inclusive, representative data and ensuring diverse voices are at the table when these tools are being developed.'
+  },
+  {
+    title: 'What was challenging?',
+    content:
+      'Finding concrete examples of biased healthcare data leading to bad decisions. We really wanted this because we did not want to see cases through statistics but as real people. Making meaningful questions for the interviews.'
+  },
+  {
+    title: 'If we had more time, what else might we have done?',
+    content:
+      'We would have liked to conduct a greater number of interviews with a more diverse sample group. We also would have created a more interactive quiz that explains the case study while the participant goes through it.'
   }
 ]
 

@@ -7,6 +7,9 @@ import { quizzes } from '@/quizData'
 import ButtonLink from '@/components/ButtonLink'
 import Link from 'next/link'
 
+// Array of option labels - only 4 options (A-D) are needed
+const OPTION_LABELS = ['A', 'B', 'C', 'D']
+
 export default function CaseStudyQuizPage() {
   const { case: caseParam } = useParams()
 
@@ -38,10 +41,10 @@ export default function CaseStudyQuizPage() {
   const quiz = quizzes.find((q) => q.caseId === caseNumber)
   const hasQuiz = quiz && quiz.questions.length > 0
 
-  const handleSelectAnswer = (questionIndex: number, optionId: string) => {
+  const handleSelectAnswer = (questionIndex: number, optionIndex: number) => {
     setSelectedAnswers({
       ...selectedAnswers,
-      [questionIndex]: optionId
+      [questionIndex]: OPTION_LABELS[optionIndex]
     })
   }
 
@@ -53,12 +56,13 @@ export default function CaseStudyQuizPage() {
     if (!hasQuiz) return 0
 
     let correctAnswers = 0
-    quiz.questions.forEach((question, index) => {
-      const selectedOption = selectedAnswers[index]
-      const correctOption = question.options.find((option) => option.isCorrect)
-
-      if (selectedOption && correctOption && selectedOption === correctOption.id) {
-        correctAnswers++
+    quiz.questions.forEach((question, qIndex) => {
+      const selectedLabel = selectedAnswers[qIndex]
+      if (selectedLabel) {
+        const selectedIndex = OPTION_LABELS.indexOf(selectedLabel)
+        if (selectedIndex === question.answer) {
+          correctAnswers++
+        }
       }
     })
 
@@ -108,18 +112,20 @@ export default function CaseStudyQuizPage() {
               </div>
 
               {quiz.questions.map((question, qIndex) => {
-                const selectedOption = selectedAnswers[qIndex]
-                const correctOption = question.options.find((option) => option.isCorrect)
-                const isCorrect = selectedOption === correctOption?.id
+                const selectedLabel = selectedAnswers[qIndex]
+                const selectedIndex = selectedLabel ? OPTION_LABELS.indexOf(selectedLabel) : -1
+                const correctIndex = question.answer
+                const isCorrect = selectedIndex === correctIndex
 
                 return (
                   <div key={qIndex} className="border rounded-lg p-6 space-y-4">
                     <div className="font-medium text-lg">{question.question}</div>
 
                     <div className="space-y-2">
-                      {question.options.map((option) => {
-                        const isSelected = selectedOption === option.id
-                        const isCorrectOption = option.isCorrect
+                      {question.options.map((option, optionIndex) => {
+                        const optionLabel = OPTION_LABELS[optionIndex]
+                        const isSelected = selectedLabel === optionLabel
+                        const isCorrectOption = optionIndex === question.answer
 
                         let bgColor = ''
                         if (isSelected && isCorrectOption) bgColor = 'bg-green-100'
@@ -128,13 +134,13 @@ export default function CaseStudyQuizPage() {
 
                         return (
                           <div
-                            key={option.id}
+                            key={optionIndex}
                             className={`p-3 rounded-md ${bgColor} ${
                               isSelected ? 'border-2 border-blue-300' : 'border border-gray-200'
                             }`}
                           >
                             <div className="flex items-start">
-                              <div className="font-medium mr-2">{option.id}.</div>
+                              <div className="font-medium mr-2">{optionLabel}.</div>
                               <div>{option.text}</div>
                             </div>
                           </div>
@@ -171,23 +177,26 @@ export default function CaseStudyQuizPage() {
                 </div>
 
                 <div className="space-y-3">
-                  {quiz.questions[currentQuestionIndex].options.map((option) => (
-                    <div
-                      key={option.id}
-                      onClick={() => handleSelectAnswer(currentQuestionIndex, option.id)}
-                      className={`p-4 rounded-md border cursor-pointer hover:bg-gray-50 transition-colors
-                        ${
-                          selectedAnswers[currentQuestionIndex] === option.id
-                            ? 'border-2 border-blue-500 bg-blue-50'
-                            : 'border-gray-200'
-                        }`}
-                    >
-                      <div className="flex items-start">
-                        <div className="font-medium mr-2">{option.id}.</div>
-                        <div>{option.text}</div>
+                  {quiz.questions[currentQuestionIndex].options.map((option, optionIndex) => {
+                    const optionLabel = OPTION_LABELS[optionIndex]
+                    return (
+                      <div
+                        key={optionIndex}
+                        onClick={() => handleSelectAnswer(currentQuestionIndex, optionIndex)}
+                        className={`p-4 rounded-md border cursor-pointer hover:bg-gray-50 transition-colors
+                          ${
+                            selectedAnswers[currentQuestionIndex] === optionLabel
+                              ? 'border-2 border-blue-500 bg-blue-50'
+                              : 'border-gray-200'
+                          }`}
+                      >
+                        <div className="flex items-start">
+                          <div className="font-medium mr-2">{optionLabel}.</div>
+                          <div>{option.text}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
 
                 <div className="flex justify-between mt-8">
@@ -204,60 +213,66 @@ export default function CaseStudyQuizPage() {
                     Previous
                   </button>
 
-                  {currentQuestionIndex < quiz.questions.length - 1 ? (
-                    <button
-                      onClick={() =>
-                        setCurrentQuestionIndex((prev) =>
-                          Math.min(quiz.questions.length - 1, prev + 1)
-                        )
-                      }
-                      className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-                    >
-                      Next
-                    </button>
-                  ) : (
-                    <button
-                      onClick={handleSubmitQuiz}
-                      disabled={Object.keys(selectedAnswers).length < quiz.questions.length}
-                      className={`px-4 py-2 rounded-md 
-                        ${
-                          Object.keys(selectedAnswers).length < quiz.questions.length
-                            ? 'bg-gray-300 opacity-50 cursor-not-allowed'
-                            : 'bg-green-600 text-white hover:bg-green-700 transition-colors'
-                        }`}
-                    >
-                      Submit Quiz
-                    </button>
-                  )}
+                  <button
+                    onClick={() =>
+                      setCurrentQuestionIndex((prev) =>
+                        Math.min(quiz.questions.length - 1, prev + 1)
+                      )
+                    }
+                    disabled={currentQuestionIndex === quiz.questions.length - 1}
+                    className={`px-4 py-2 rounded-md bg-blue-600 text-white 
+                      ${
+                        currentQuestionIndex === quiz.questions.length - 1
+                          ? 'opacity-50 cursor-not-allowed'
+                          : 'hover:bg-blue-700 transition-colors'
+                      }`}
+                  >
+                    Next
+                  </button>
                 </div>
               </div>
 
-              <div className="flex justify-center mt-6 space-x-2">
-                {quiz.questions.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentQuestionIndex(index)}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center
-                      ${
-                        currentQuestionIndex === index
-                          ? 'bg-blue-600 text-white'
-                          : selectedAnswers[index]
-                          ? 'bg-blue-100 text-blue-800'
-                          : 'bg-gray-200 text-gray-800'
-                      }`}
-                  >
-                    {index + 1}
-                  </button>
-                ))}
+              <div className="flex justify-between items-center">
+                <div className="flex space-x-2">
+                  {quiz.questions.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentQuestionIndex(index)}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm
+                        ${
+                          currentQuestionIndex === index
+                            ? 'bg-blue-600 text-white'
+                            : selectedAnswers[index] !== undefined
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-gray-200 text-gray-800'
+                        }`}
+                    >
+                      {index + 1}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleSubmitQuiz}
+                  disabled={Object.keys(selectedAnswers).length < quiz.questions.length}
+                  className={`px-4 py-2 rounded-md bg-green-600 text-white 
+                    ${
+                      Object.keys(selectedAnswers).length < quiz.questions.length
+                        ? 'opacity-50 cursor-not-allowed'
+                        : 'hover:bg-green-700 transition-colors'
+                    }`}
+                >
+                  Submit Quiz
+                </button>
               </div>
             </>
           )}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center py-16">
-          <div className="text-xl font-medium mb-4">Quiz Coming Soon</div>
+        <div className="border rounded-lg p-8 text-center">
+          <div className="text-xl mb-4">No quiz available for this case study yet.</div>
           <div className="text-gray-500">
-            We're still working on the quiz for this case study. Please check back later!
+            We're still working on creating a quiz for this case study. Please check back later.
           </div>
         </div>
       )}

@@ -8,14 +8,14 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: transparent;
-}
+} */
 
 :root {
   --foreground-rgb: 0, 0, 0;

@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from '@/components/Link'
-import { interviewees, caseStudies } from '@/data'
+import { interviewees, caseStudies, conclusionSections } from '@/data'
 import ButtonLink from '@/components/ButtonLink'
 
 export default function Home() {
@@ -168,51 +168,12 @@ export default function Home() {
       <div className="h-[1px] bg-stroke my-8"></div>
 
       <div className="sm:text-2xl font-medium mb-4">Conclusion</div>
-      <div className="sm:text-xl font-medium mb-3">Why it Matters</div>
-      <div className="mb-6">
-        Everyone should have equal, unbiased access to healthcare, but right now, that’s not the
-        case. Systemic disparities already exist, and if we’re not careful, AI could make them
-        worse. In fact, by 2022, nearly 20% of U.S. hospitals had integrated some form of AI into
-        their practices (Baten & Abdul, 2022). While this is exciting progress, it also raises
-        concerns. These technologies are being used to make decisions about diagnoses, treatment
-        plans, and even who gets access to care. If the data used to train these algorithms is
-        biased, then the outcomes will be too. That means people who are already marginalized, i.e.,
-        racial minorities, transgender individuals, and others, could be left behind or even harmed
-        by the very systems meant to help them. That’s why it matters: because we’re not just
-        talking about code or data, we’re talking about people’s lives, and ensuring everyone gets
-        the care they need and deserve.
-      </div>
-
-      <div className="sm:text-xl font-medium mb-3">What we learnt</div>
-      <div className="mb-6">
-        One of the biggest things we’ve learned is that bias in healthcare is not just a theoretical
-        issue, it has serious, real-world consequences. For example, in one tragic case, a
-        transgender man, assigned female at birth, was marked as male in the system. Although he had
-        disclosed he was transgender, clinicians failed to consider pregnancy as a possibility. As a
-        result, care was delayed, and the baby was stillborn. In another case, a Black man waited
-        over five years for a kidney transplant because the algorithm used to assess kidney function
-        artificially boosted scores for Black patients, making them seem healthier than they really
-        were. These examples show that bias often doesn’t come from the AI itself, it comes from the
-        data it’s trained on and the assumptions of the people building these systems. I’ve learned
-        that fixing these systems after they’re deployed is extremely difficult. That’s why we need
-        to design them responsibly from the ground up, this means collecting inclusive,
-        representative data and ensuring diverse voices are at the table when these tools are being
-        developed.
-      </div>
-
-      <div className="sm:text-xl font-medium mb-3">What was challenging?</div>
-      <div className="mb-6">
-        Finding concrete examples of biased healthcare data leading to bad decisions. We really
-        wanted this because we didn't want to see cases through stats but as real people.
-      </div>
-
-      <div className="sm:text-xl font-medium mb-3">
-        If we had more time what else you might have done?
-      </div>
-      <div className="mb-6">
-        More interviews from a more diverse sample population. Made a more interactive quiz while
-        also explaining the case study and teaching whoever is doing the quiz.
-      </div>
+      {conclusionSections.map((section, index) => (
+        <div key={index} className="mb-6">
+          <div className="sm:text-xl font-medium mb-3">{section.title}</div>
+          <div>{section.content}</div>
+        </div>
+      ))}
     </div>
   )
 }
