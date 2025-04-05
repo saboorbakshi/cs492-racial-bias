@@ -35,22 +35,25 @@ export default function Home() {
         <Link
           label="Project Proposal"
           url="/pdfs/Project Proposal.pdf"
-          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+          className="text-base"
         />
+        <span className="text-blue-600">•</span>
         <Link
           label="Project Update"
           url="/pdfs/Project Update.pdf"
-          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+          className="text-base"
         />
+        <span className="text-blue-600">•</span>
         <Link
           label="Complete Detailed Cases with References"
           url="/pdfs/Complete Detailed Cases with References.pdf"
-          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+          className="text-base"
         />
+        <span className="text-blue-600">•</span>
         <Link
           label="Interview Script"
           url="/pdfs/Interview Script.pdf"
-          className="px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 text-sm transition"
+          className="text-base"
         />
       </div>
 
@@ -64,15 +67,15 @@ export default function Home() {
         assumptions, then revealed the full context for deeper discussion. The interviews concluded
         with reflections on broader impacts and solutions.
       </div>
-      <div className="grid grid-cols-2 gap-x-0 gap-y-8 mb-8">
+      <div className="grid grid-cols-2 gap-x-0 gap-y-3 mb-8">
         {interviewees.map((interviewee, index) => (
           <button
             key={index}
             onClick={() => setSelectedInterviewee(interviewee)}
-            className={`flex flex-row items-center gap-4 group rounded-xl p-2 transition-all ${
+            className={`flex flex-row items-center gap-4 group rounded-xl px-2 py-3 transition-all border-[1.5px] ${
               selectedInterviewee.name === interviewee.name
-                ? 'border-2 border-blue-500 bg-blue-50'
-                : 'border border-transparent'
+                ? 'border-blue-500 bg-blue-50'
+                : 'border-transparent'
             }`}
           >
             <div className="relative">
@@ -94,9 +97,7 @@ export default function Home() {
             <div className="flex flex-col items-start">
             <div className="flex items-center gap-1">
               <div
-                className={`sm:text-base font-semibold transition-colors ${
-                  selectedInterviewee.name === interviewee.name ? 'text-black' : 'text-fgSecondary'
-                } group-hover:underline group-hover:text-black`}
+                className={`sm:text-base font-semibold transition-colors text-fg group-hover:underline group-hover:text-fg`}
               >
                 {interviewee.name}
               </div>
@@ -106,12 +107,6 @@ export default function Home() {
             </div>
           </button>
         ))}
-      </div>
-      <div className="mb-4">
-        <ButtonLink
-          label={`Read the Interview Transcript featuring ${selectedInterviewee.name} →`}
-          url={'/transcripts/' + selectedInterviewee.name.toLowerCase().replace(/\s+/g, '-')}
-        />
       </div>
       <div className="aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden mb-6">
         <iframe
@@ -123,21 +118,15 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
+      
+      <div className="mb-8">
+        <ButtonLink
+          label={`Read the Interview Transcript featuring ${selectedInterviewee.name} →`}
+          url={'/transcripts/' + selectedInterviewee.name.toLowerCase().replace(/\s+/g, '-')}
+        />
+      </div>
 
       <div className="h-[1px] bg-stroke my-8"></div>
-
-      <div className="mb-8 bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
-        <p className="text-sm text-gray-600">
-          Try the quiz before reading the case and discussion below.<br />
-          It’s a great way to test your intuition first!
-        </p>
-        <div className="mt-4">
-          <ButtonLink
-            label={`Take Quiz ${selectedCase + 1} →`}
-            url={`/quiz/${selectedCase + 1}`}
-          />
-        </div>
-      </div>
 
       <div className="sm:text-2xl font-medium mb-4">Analysis of Case Studies</div>
       <div className="mb-6">
@@ -159,6 +148,18 @@ export default function Home() {
               </button>
             )
           })}
+        </div>
+      </div>
+      <div className="mb-6 border border-gray-200 rounded-xl p-6 text-center">
+        <p className="text-base text-fgSecondary">
+          Try the quiz before reading the case and discussion below.<br />
+          It’s a great way to test your intuition first!
+        </p>
+        <div className="mt-4">
+          <ButtonLink
+            label={`Take Quiz ${selectedCase + 1} →`}
+            url={`/quiz/${selectedCase + 1}`}
+          />
         </div>
       </div>
       <div className="sm:text-xl font-medium mb-3">{caseStudies[selectedCase].title}</div>
