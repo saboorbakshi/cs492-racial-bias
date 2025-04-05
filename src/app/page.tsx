@@ -126,11 +126,22 @@ export default function Home() {
 
       <div className="h-[1px] bg-stroke my-8"></div>
 
+      <div className="mb-8 bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
+        <p className="text-sm text-gray-600">
+          Try the quiz before reading the case and discussion below.<br />
+          It’s a great way to test your intuition first!
+        </p>
+        <div className="mt-4">
+          <ButtonLink
+            label={`Take Quiz ${selectedCase + 1} →`}
+            url={`/quiz/${selectedCase + 1}`}
+          />
+        </div>
+      </div>
+
       <div className="sm:text-2xl font-medium mb-4">Analysis of Case Studies</div>
       <div className="mb-6">
-        For each of the six case studies, we will analyze the interviewee responses to understand
-        how bias influenced the AI's decisions and explore the ethical and practical implications of
-        each scenario.
+        For each of the six case studies, we will analyze the interviewee responses to understand how bias influenced the AI's decisions and explore the ethical and practical implications of each scenario.
       </div>
       <div className="bg-bgSecondary rounded-lg p-1 mb-6">
         <div className="flex flex-row items-center justify-between">
@@ -178,7 +189,7 @@ export default function Home() {
           </p>
         ))}
       </div>
-      <ButtonLink label={`Take Quiz ${selectedCase + 1} →`} url={'/quiz/' + (selectedCase + 1)} />
+      {/* <ButtonLink label={`Take Quiz ${selectedCase + 1} →`} url={'/quiz/' + (selectedCase + 1)} /> */}
 
       <div className="h-[1px] bg-stroke my-8"></div>
 

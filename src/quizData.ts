@@ -1,14 +1,21 @@
+import { caseStudies } from '@/data'
+
 export interface QuizQuestion {
+  type?: 'question' | 'info'
   question: string
-  options: {
+  options?: {
     text: string
   }[]
-  answer: number // Index of the correct answer (0-3)
+  answer?: number // Index of the correct answer (0-3)
 }
 
 export interface Quiz {
   caseId: number
   questions: QuizQuestion[]
+}
+
+function formatSummaryWithNewlines(paragraphs: string[]): string {
+  return paragraphs.join('\n\n') // double newline for clearer spacing
 }
 
 export const quizzes: Quiz[] = [
@@ -90,6 +97,12 @@ export const quizzes: Quiz[] = [
           }
         ],
         answer: 1
+      },
+      {
+        type: 'info',
+        question:
+          'Case Summary: Read before moving on to the next questions\n\n' +
+          formatSummaryWithNewlines(caseStudies[0].summary)
       },
       {
         question:
@@ -307,6 +320,12 @@ export const quizzes: Quiz[] = [
         answer: 2
       },
       {
+        type: 'info',
+        question:
+          'Case Summary: Read before moving on to the next questions\n\n' +
+          formatSummaryWithNewlines(caseStudies[1].summary)
+      },
+      {
         question:
           'How should an AI triage system respond to gender-based statistical differences when a user inputs serious symptoms?',
         options: [
@@ -425,6 +444,12 @@ export const quizzes: Quiz[] = [
         answer: 1
       },
       {
+        type: 'info',
+        question:
+          'Case Summary: Read before moving on to the next questions\n\n' +
+          formatSummaryWithNewlines(caseStudies[2].summary)
+      },
+      {
         question:
           "What role do societal assumptions — like breast cancer being a 'women's disease' — play in healthcare algorithms like the one that denied Raymond Johnson coverage?",
         options: [
@@ -524,6 +549,12 @@ export const quizzes: Quiz[] = [
           }
         ],
         answer: 1
+      },
+      {
+        type: 'info',
+        question:
+          'Case Summary: Read before moving on to the next questions\n\n' +
+          formatSummaryWithNewlines(caseStudies[3].summary)
       },
       {
         question:
@@ -665,6 +696,12 @@ export const quizzes: Quiz[] = [
         answer: 3
       },
       {
+        type: 'info',
+        question:
+          'Case Summary: Read before moving on to the next questions\n\n' +
+          formatSummaryWithNewlines(caseStudies[4].summary)
+      },
+      {
         question:
           "What does Dr. Aboelata's case highlight about relying too heavily on technology like pulse oximeters?",
         options: [
@@ -802,6 +839,12 @@ export const quizzes: Quiz[] = [
           }
         ],
         answer: 0
+      },
+      {
+        type: 'info',
+        question:
+          'Case Summary: Read before moving on to the next questions\n\n' +
+          formatSummaryWithNewlines(caseStudies[5].summary)
       },
       {
         question:

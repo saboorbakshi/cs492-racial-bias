@@ -39,7 +39,7 @@ export default function CaseStudyQuizPage() {
 
   const caseStudy = caseStudies[selectedCaseIndex]
   const quiz = quizzes.find((q) => q.caseId === caseNumber)
-  const hasQuiz = quiz && quiz.questions.length > 0
+  const hasQuiz = quiz && quiz.questions.filter((q) => q.type !== 'info').length > 0
 
   const handleSelectAnswer = (questionIndex: number, optionIndex: number) => {
     setSelectedAnswers({
@@ -56,7 +56,7 @@ export default function CaseStudyQuizPage() {
     if (!hasQuiz) return 0
 
     let correctAnswers = 0
-    quiz.questions.forEach((question, qIndex) => {
+    quiz.questions.filter((q) => q.type !== 'info').forEach((question, qIndex) => {
       const selectedLabel = selectedAnswers[qIndex]
       if (selectedLabel) {
         const selectedIndex = OPTION_LABELS.indexOf(selectedLabel)
@@ -108,10 +108,12 @@ export default function CaseStudyQuizPage() {
           {showResults ? (
             <div className="space-y-6">
               <div className="text-2xl">
-                You scored {calculateScore()} out of {quiz.questions.length}
+                You scored {calculateScore()} out of {quiz.questions.filter((q) => q.type !== 'info').length}!<br />
+                The "correct" answers are determined by the consensus of the four interviewees responses.
+                This is because oftentimes their responses generally match each other.
               </div>
 
-              {quiz.questions.map((question, qIndex) => {
+              {quiz.questions.filter((q) => q.type !== 'info').map((question, qIndex) => {
                 const selectedLabel = selectedAnswers[qIndex]
                 const selectedIndex = selectedLabel ? OPTION_LABELS.indexOf(selectedLabel) : -1
                 const correctIndex = question.answer
@@ -122,7 +124,7 @@ export default function CaseStudyQuizPage() {
                     <div className="font-medium text-lg">{question.question}</div>
 
                     <div className="space-y-2">
-                      {question.options.map((option, optionIndex) => {
+                      {question.options?.map((option, optionIndex) => {
                         const optionLabel = OPTION_LABELS[optionIndex]
                         const isSelected = selectedLabel === optionLabel
                         const isCorrectOption = optionIndex === question.answer
@@ -165,19 +167,27 @@ export default function CaseStudyQuizPage() {
               <div className="border rounded-lg p-6 space-y-6">
                 <div className="flex justify-between items-center">
                   <div className="text-lg font-medium">
-                    Question {currentQuestionIndex + 1} of {quiz.questions.length}
+                    Page {currentQuestionIndex + 1} of {quiz.questions.length}
                   </div>
                   <div className="text-sm text-gray-500">
-                    {Object.keys(selectedAnswers).length} of {quiz.questions.length} answered
+                    {Object.keys(selectedAnswers).length} of {quiz.questions.filter((q) => q.type !== 'info').length} answered
                   </div>
                 </div>
 
-                <div className="text-xl font-medium">
-                  {quiz.questions[currentQuestionIndex].question}
-                </div>
+                {quiz.questions[currentQuestionIndex].type === 'info' ? (
+                  <div className="text-sm text-gray-800 space-y-4">
+                    {quiz.questions[currentQuestionIndex].question.split('\n\n').map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-xl font-medium">
+                    {quiz.questions[currentQuestionIndex].question}
+                  </div>
+                )}
 
                 <div className="space-y-3">
-                  {quiz.questions[currentQuestionIndex].options.map((option, optionIndex) => {
+                  {quiz.questions[currentQuestionIndex].options?.map((option, optionIndex) => {
                     const optionLabel = OPTION_LABELS[optionIndex]
                     return (
                       <div
@@ -254,10 +264,10 @@ export default function CaseStudyQuizPage() {
 
                 <button
                   onClick={handleSubmitQuiz}
-                  disabled={Object.keys(selectedAnswers).length < quiz.questions.length}
+                  disabled={Object.keys(selectedAnswers).length < quiz.questions.filter((q) => q.type !== 'info').length}
                   className={`px-4 py-2 rounded-md bg-green-600 text-white 
                     ${
-                      Object.keys(selectedAnswers).length < quiz.questions.length
+                      Object.keys(selectedAnswers).length < quiz.questions.filter((q) => q.type !== 'info').length
                         ? 'opacity-50 cursor-not-allowed'
                         : 'hover:bg-green-700 transition-colors'
                     }`}
