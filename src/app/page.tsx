@@ -67,21 +67,22 @@ export default function Home() {
         assumptions, then revealed the full context for deeper discussion. The interviews concluded
         with reflections on broader impacts and solutions.
       </div>
-      <div className="grid grid-cols-2 gap-x-0 gap-y-3 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
         {interviewees.map((interviewee, index) => (
           <button
             key={index}
             onClick={() => setSelectedInterviewee(interviewee)}
-            className={`flex flex-row items-center gap-4 group rounded-xl px-2 py-3 transition-all border-[1.5px] ${
-              selectedInterviewee.name === interviewee.name
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-transparent'
-            }`}
+            className={`flex flex-row items-center gap-4 rounded-xl px-2 py-3 transition-all border-[1.5px] hover:bg-blue-50 ${selectedInterviewee.name === interviewee.name
+              ? 'border-blue-500 bg-blue-50'
+              : 'border-transparent'
+              }`}
           >
             <div className="relative">
               <Image
                 src={`/interviewees/${interviewee.src}`}
                 alt={interviewee.name}
+                fetchPriority="high"
+                priority
                 width={72}
                 height={72}
                 className="rounded-full border"
@@ -89,19 +90,21 @@ export default function Home() {
               <Image
                 src={`/companies/${interviewee.companySrc}`}
                 alt={interviewee.company}
+                fetchPriority="high"
+                priority
                 width={36}
                 height={36}
                 className="rounded-full border absolute -bottom-2 -right-2"
               />
             </div>
             <div className="flex flex-col items-start">
-            <div className="flex items-center gap-1">
-              <div
-                className={`sm:text-base font-semibold transition-colors text-fg group-hover:underline group-hover:text-fg`}
-              >
-                {interviewee.name}
+              <div className="flex items-center gap-1">
+                <div
+                  className={`sm:text-base font-semibold transition-colors text-fg`}
+                >
+                  {interviewee.name}
+                </div>
               </div>
-            </div>
               <div className="sm:text-base">{interviewee.role}</div>
               <div className="sm:text-base text-fgSecondary">{interviewee.company}</div>
             </div>
@@ -118,10 +121,10 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
-      
+
       <div className="mb-8">
         <ButtonLink
-          label={`Read the Interview Transcript featuring ${selectedInterviewee.name} →`}
+          label={`Read ${selectedInterviewee.name}’s Transcript`}
           url={'/transcripts/' + selectedInterviewee.name.toLowerCase().replace(/\s+/g, '-')}
         />
       </div>
@@ -139,12 +142,12 @@ export default function Home() {
             return (
               <button
                 key={caseNumber}
-                className={`flex-1 rounded-md transition-colors py-2  ${
-                  selectedCase === caseNumber ? 'bg-bg text-fg' : 'bg-bgSecondary text-fgSecondary'
-                }`}
+                className={`flex-1 rounded-md transition-colors py-2  ${selectedCase === caseNumber ? 'bg-bg text-fg' : 'bg-bgSecondary text-fgSecondary'
+                  }`}
                 onClick={() => setSelectedCase(caseNumber)}
               >
-                Case {caseNumber + 1}
+                <span className="sm:hidden">C{caseNumber + 1}</span>
+                <span className="hidden sm:inline">Case {caseNumber + 1}</span>
               </button>
             )
           })}
@@ -157,7 +160,7 @@ export default function Home() {
         </p>
         <div className="mt-4">
           <ButtonLink
-            label={`Take Quiz ${selectedCase + 1} →`}
+            label={`Take Quiz ${selectedCase + 1}`}
             url={`/quiz/${selectedCase + 1}`}
           />
         </div>
