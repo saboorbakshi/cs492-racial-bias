@@ -90,8 +90,8 @@ export default function QuizContent({ caseParam }: { caseParam: string }) {
                 className={`flex-1 rounded-md transition-colors py-2 text-center ${isSelected ? 'bg-bg text-fg' : 'bg-bgSecondary text-fgSecondary'
                   }`}
               >
-                <span className="sm:hidden">Q{caseNumber + 1}</span>
-                <span className="hidden sm:inline">Quiz {caseNumber + 1}</span>
+                <span className="sm:hidden">Q{caseNumber}</span>
+                <span className="hidden sm:inline">Quiz {caseNumber}</span>
               </Link>
             )
           })}
